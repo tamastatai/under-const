@@ -2,8 +2,9 @@ const data = require('/Users/bencso/Desktop/data.json');
 const emojiList = Object.keys(require('./emojilist.json'));
 
 const selector = ( () => {
-  let emojis = {};
+
   let findEmoji = (data) => {
+    let emojis = {};
     let textArray = data.text.split(' ');
     textArray.forEach( (item) => {
       if (emojiList.includes(item)) {
@@ -15,6 +16,10 @@ const selector = ( () => {
       };
     });
     return emojis;
+  };
+
+  let setValueToEmoji = (data) => {
+    
   };
 
   return {
