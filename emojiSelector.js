@@ -1,11 +1,11 @@
 const data = require('/Users/bencso/Desktop/data.json');
 const emojiList = Object.keys(require('./emojilist.json'));
 
-const selector = (function () {
+const selector = ( () => {
   let emojis = {};
-  let findEmoji = function(data) {
+  let findEmoji = (data) => {
     let textArray = data.text.split(' ');
-    textArray.forEach( function(item) {
+    textArray.forEach( (item) => {
       if (emojiList.includes(item)) {
         if (Object.keys(emojis).includes(item)) {
           emojis[item]+=1;
