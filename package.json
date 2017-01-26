@@ -1,0 +1,33 @@
+{
+  "name": "under-const",
+  "version": "1.0.0",
+  "description": "bot slack brigi gabor tomi ricsi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamastatai/under-const.git"
+  },
+  "keywords": [
+    "bot",
+    "slack",
+    "mood",
+    "joy",
+    "emoji"
+  ],
+  "author": "Brigi Gabor Tomi Ricsi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamastatai/under-const/issues"
+  },
+  "homepage": "https://github.com/tamastatai/under-const#readme",
+  "dependencies": {
+    "@slack/client": "^3.8.1",
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "slack-events-listener": "^1.1.0"
+  }
+}
