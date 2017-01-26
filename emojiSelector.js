@@ -1,16 +1,17 @@
 const data = require('/Users/bencso/Desktop/data.json');
-const emojiList = [":joy:", ":clown-face:", ":yo:"];
-const emojiScore = {
-  ":joy:": 1
-};
+const emojiList = Object.keys(require('./emojilist.json'));
 
 const selector = (function () {
-  let emojis = [];
+  let emojis = {};
   let findEmoji = function(data) {
     let textArray = data.text.split(' ');
     textArray.forEach( function(item) {
       if (emojiList.includes(item)) {
-        emojis.push(item);
+        if (Object.keys(emojis).includes(item)) {
+          emojis[item]+=1;
+        } else {
+          emojis[item] = 1;
+        };
       };
     });
     return emojis;
@@ -22,5 +23,4 @@ const selector = (function () {
 
 })();
 
-// selector.findEmoji(data);
 console.log(selector.findEmoji(data));
