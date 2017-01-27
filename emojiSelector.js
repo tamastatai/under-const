@@ -1,12 +1,13 @@
 const data = require('/Users/bencso/Desktop/data.json');
-const emojiList = Object.keys(require('./emojilist.json'));
+const emojiList = require('./emojilist.json');
 
 const selector = ( () => {
-  let emojis = {};
+
   let findEmoji = (data) => {
+    let emojis = {};
     let textArray = data.text.split(' ');
     textArray.forEach( (item) => {
-      if (emojiList.includes(item)) {
+      if (Object.keys(emojiList).includes(item)) {
         if (Object.keys(emojis).includes(item)) {
           emojis[item]+=1;
         } else {
@@ -17,10 +18,33 @@ const selector = ( () => {
     return emojis;
   };
 
-  return {
-    findEmoji: findEmoji
+  let getMessageData = (data) => {
+    let emojiNumber = 0;
+    let textArray = data.text.split(' ');
+    textArray.forEach( (emoji) => {
+      if (Object.keys(emojiList).includes(emoji)) {
+        emojiNumber++;
+      };
+    });
+    return emojiNumber;
   };
+
+  let sendData = (data) => {
+    return {
+      "channel_id": data.channel_id,
+      "text_length": data.text.length,
+      "emojis": selector.getMessageData(data)
+    }
+  };
+
+  return {
+    getMessageData: getMessageData,
+    sendData: sendData
+  };
+
 
 })();
 
-console.log(selector.findEmoji(data));
+// console.log(selector.getMessageData(data));
+
+console.log(selector.sendData(data));
