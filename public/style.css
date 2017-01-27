@@ -9,3 +9,19 @@ body, html {
   height: 100%;
   overflow: hidden;
 }
+
+.menu {
+  height: 60px;
+  z-index: 999;
+  background: white;
+  font-family: helvetica;
+  color: black;
+  align-items: center;
+}
+
+ul {
+  background: white;
+  width: 100px;
+  height: 20px;
+  position: absolute;
+}
